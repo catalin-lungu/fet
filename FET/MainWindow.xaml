@@ -1,0 +1,414 @@
+﻿<Window x:Class="FET.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+        xmlns:telerikTransitions="clr-namespace:Telerik.Windows.Controls.TransitionEffects;assembly=Telerik.Windows.Controls"        
+        xmlns:ee="http://schemas.microsoft.com/expression/2010/effects"        
+             
+        Height="600" Width="780"
+        Title="{DynamicResource fet}" >    
+
+    <DockPanel LastChildFill="False">
+
+        <DockPanel.Background>
+            <ImageBrush  ImageSource ="pack://application:,,,/FET;component/img/background.jpg"/>
+        </DockPanel.Background>
+
+        <Menu DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Row="1" Background="Transparent" Opacity="0.95" Foreground="Black" BorderBrush="Transparent" 
+              Margin="0,0,0,10">
+			            			            
+			<MenuItem x:Name="menuItemFile" Header="{DynamicResource file}" Width="80" Background="Transparent" VerticalAlignment="Bottom">
+
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetName="menuItemFile"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                            </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemFile"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="80"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>			                               
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/file2.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+				</MenuItem.Icon>
+
+				<MenuItem Header="{DynamicResource new}" x:Name="New" Click="New_Click"/>
+				<MenuItem Header="{DynamicResource open}" x:Name="Open" Click="Open_Click"/>
+				<MenuItem Header="{DynamicResource openRecent}" x:Name="openRecentList">
+					<MenuItem  Header="{DynamicResource clearList}" Click="Clear_Click" VerticalAlignment="Bottom"/>
+				</MenuItem>
+				<Separator />
+				<MenuItem Header="{DynamicResource save}" Click="Save_Click"/>
+				<MenuItem Header="{DynamicResource saveAs}" Click="SaveAs_Click"/>
+				<Separator/>
+				<MenuItem Header="{DynamicResource import}">
+					<MenuItem Header="{DynamicResource importFromDatabase}" Click="ImportFromDb_Click"/>
+				</MenuItem>
+				<MenuItem Header="{DynamicResource export}">
+					<MenuItem Header="{DynamicResource exportToDatabase}" Click="ExportToDB_Click"/>
+				</MenuItem>
+				<Separator/>
+
+				<MenuItem Header="{DynamicResource quit}" Click="Quit_Click"/>
+			</MenuItem>
+
+            <MenuItem x:Name="menuItemData" Header="{DynamicResource data}" Width="80" Background="Transparent" VerticalAlignment="Bottom">
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemData"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemData"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="80"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+
+                <MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/data.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</MenuItem.Icon>
+                				
+                <MenuItem Header="{DynamicResource generalInfo}" Click="GeneralInfo_Click"/>
+                <Separator />
+                <MenuItem Header="{DynamicResource buildings}" Click="Buildings_Click"/>
+                <Separator />
+				<MenuItem Header="{DynamicResource subjects}" Click="Subjects_Click"/>
+				<MenuItem Header="{DynamicResource activityTags}" Click="ActivityTags_Click"/>				
+				<MenuItem Header="{DynamicResource students}" Click="Students_Click"/>
+                <MenuItem Header="{DynamicResource teachers}" Click="Teachers_Click"/>
+
+                <Separator />
+				<MenuItem Header="{DynamicResource activities}" Click="Activities_Click"/>				
+				<Separator />
+                
+				<MenuItem Header="{DynamicResource teachersConstraints}" Click="ConstraintsTeachers_Click"/>
+				<MenuItem Header="{DynamicResource studentsConstraints}" Click="ConstraintsStudents_Click"/>
+
+                <Separator/>
+                <MenuItem Header="{DynamicResource timeConstraints}">
+
+                    <MenuItem Header="{DynamicResource breakTimes}" Click="NotAvailableTimes_Click"/>
+                    
+                    
+                    <MenuItem Header="{DynamicResource teachers}">
+						<MenuItem Header="{DynamicResource maxHoursWithAnActivityTagForATeacher}" Click="MaxHoursWithAnActivityTagForATeacher_Click"/>
+						
+						<Separator/>                        
+						
+						<MenuItem Header="{DynamicResource maxHoursDailyWithAnActivityTagForAllTeachers}" Click="MaxHoursDailyWithAnActivityTagForAllTeachers_Click"/>				
+
+						<MenuItem Header="{DynamicResource maxHoursContinuouslyWithAnActivityTagForAllTeachers}" Click="MaxHoursContinuouslyWithAnActivityTagForAllTeachers_Click"/>
+						
+					</MenuItem>
+					<MenuItem Header="{DynamicResource students}">
+						<MenuItem Header="{DynamicResource maxHoursWithAnActivityTagForAStudentsSet}" Click="MaxHoursForStudentsSetWithActivityTag_Click"/>
+						
+						<Separator />
+                        
+						<MenuItem Header="{DynamicResource maxHoursDailyWithAnActivityTagForAllStudents}" Click="MaxHoursDailyWithActivityTagAllStudents_Click"/>
+						
+						<MenuItem Header="{DynamicResource maxHoursContinuouslyWithAnActivityTagForAllStudents}" Click="MaxHoursContinuouslyActivityTagAllStudents_Click"/>
+						
+					</MenuItem>
+					<MenuItem Header="{DynamicResource activities}">
+						<MenuItem Header="{DynamicResource anActivityHasAPreferredStartingTime}" Click="ActivityHasPreferredStartingTime_Click"/>
+						<MenuItem Header="{DynamicResource anActivityHasASetOfPreferredStartingTimes}" Click="ActivityHasSetOfPreferredStartingTimes_Click"/>
+						<MenuItem Header="{DynamicResource anActivityHasASetOfPreferredTimeSlots}" Click="ActivityHasSetOfPreferredTimeSlots_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesHasASetOfPreferredStartingTimes}" Click="SetOfActivityHasSetOfPreferredStartingTimes_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesHasASetOfPreferredTimeSlots}" Click="SetOfActivityHasSetOfPreferredTimeSlots_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource aSetOfSubactivitiesHasASetOfPreferredStartingTimes}" Click="SetOfSubactivityHasSetOfPreferredStartingTimes_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfSubactivitiesHasASetOfPreferredTimeSlots}" Click="SetOfSubactivityHasSetOfPreferredTimeSlots_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource minDaysBetweenASetOfActivities}" Click="MinDaysBetweenSetOfActivities_Click"/>
+						<MenuItem Header="{DynamicResource maxDaysBetweenASetOfActivities}" Click="MaxDaysBetweenSetOfActivities_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource anActivityEndsStudentsDay}" Click="AnActivityEndsStudentsDay_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesEndStudentsDay}" Click="SetOfActivitiesEndStudentsDay_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesHasSameStartingTime}" Click="SetOfActivitiesHasSameStartingTime_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesHasSameStartingDay}" Click="SetOfActivitiesHasSameStartingDay_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesHasSameStartingHour}" Click="SetOfActivitiesHasSameStartingHour_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesOccupiesMaxTimeSlotsFromSelection}" />
+						<Separator />
+						<MenuItem Header="{DynamicResource twoActivitiesAreOrdered}" Click="TwoActivitiesAreOrdered_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource twoActivitiesAreConsecutive}" Click="TwoActivitiesAreConsecutive_Click"/>
+						<MenuItem Header="{DynamicResource twoActivitiesAreGrouped}" Click="TwoActivitiesAreGrouped_Click"/>
+						<MenuItem Header="{DynamicResource threeActivitiesAreGrouped}" Click="ThreeActivitiesAreGrouped_Click"/>
+						<Separator/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesAreNotOverlapping}" Click="ASetOfActivitiesAreNotOverlapping_Click"/>
+						<MenuItem Header="{DynamicResource maxSimultaneousActivitiesFromASetInSelectedTimeSlots}" />
+						<Separator/>
+						<MenuItem Header="{DynamicResource minGapsBetweenASetOfActivities}" Click="MinGapsBetweenSetOfActivities_Click"/>
+					</MenuItem>
+				</MenuItem>
+				
+				<MenuItem Header="{DynamicResource spaceConstraints}">					
+
+
+					<MenuItem Header="{DynamicResource subjectsAndActivityTags}">
+						<MenuItem Header="{DynamicResource aSubjectActivityTagHasAPreferredRoom}" Click="ASubjectAnActivityTagHaveAPreferredRoom_Click"/>
+						<MenuItem Header="{DynamicResource aSubjectActivityTagHasASetOfPreferredRooms}" Click="ASubjectAnActivityTagHaveASetOfPreferredRooms_Click"/>
+					</MenuItem>
+
+					<MenuItem Header="{DynamicResource activities}">
+						
+                        <MenuItem Header="{DynamicResource aSetOfActivitiesAreInTheSameRoomIfTheyAreConsecutive}" Click="ASetOfActivitiesAreInTheSameRoomIfTheyAreConsecutive_Click"/>
+						<MenuItem Header="{DynamicResource aSetOfActivitiesOccupiesMaxDifferentRooms}" Click="ASetOfActivitiesOccupiesMaxDifferentRooms_Click"/>
+
+					</MenuItem>
+
+				</MenuItem>
+			</MenuItem>
+
+            <MenuItem x:Name="menuItemStatistics" Header="{DynamicResource statistics}" Width="70" Background="Transparent" VerticalAlignment="Bottom">
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/statistics.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</MenuItem.Icon>
+
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemStatistics"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemStatistics"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="70"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+
+                <MenuItem Header="{DynamicResource teachersStatistics}"/>
+				<MenuItem Header="{DynamicResource subjectsStatistics}"/>
+				<MenuItem Header="{DynamicResource studentsStatistics}"/>
+				<Separator/>
+				<MenuItem Header="{DynamicResource activitiesRoomsStatistics}"/>
+				<Separator />
+				<MenuItem Header="{DynamicResource printAdvancedStatistics}"/>
+				<MenuItem Header="{DynamicResource exportAdvancedStatisticsToDisk}"/>
+				<Separator/>
+				<MenuItem Header="{DynamicResource helpOnStatistics}"/>
+
+			</MenuItem>
+            <MenuItem x:Name="menuItemAdvanced" Header="{DynamicResource advanced}" Width="70" Background="Transparent" VerticalAlignment="Bottom">
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/advanced.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</MenuItem.Icon>
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemAdvanced"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemAdvanced"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="70"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+			</MenuItem>
+
+            <MenuItem x:Name="menuItemTimetable" Header="{DynamicResource timetable}" Width="80" Background="Transparent" VerticalAlignment="Bottom">
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/timetable1.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</MenuItem.Icon>
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemTimetable"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemTimetable"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="80"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+                <MenuItem Header="{DynamicResource generateNew}" Click="GenerateNew_Click"/>
+				<Separator/>
+				<MenuItem Header="{DynamicResource teachers}" Click="TeachersTimetable_Click"/>
+				<MenuItem Header="{DynamicResource students}" Click="StudentsTimetable_Click"/>
+				<MenuItem Header="{DynamicResource rooms}" Click="RoomsTimetable_Click"/>
+				
+			</MenuItem>
+            <MenuItem x:Name="menuItemSettings" Header="{DynamicResource settings}" Width="80" Background="Transparent" VerticalAlignment="Bottom">
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/settings.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+				</MenuItem.Icon>
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemSettings"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemSettings"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="80"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+				<MenuItem x:Name="languages"  Header ="{DynamicResource languages}">
+					<MenuItem Tag="ar" Header="العربية" Click="LanguageChange_Click" />
+					<MenuItem Tag="en-US" Header="_English" Click="LanguageChange_Click" />
+					<MenuItem Tag="ro-RO" Header="_Română" Click="LanguageChange_Click" />
+				</MenuItem>
+			</MenuItem>
+            <MenuItem x:Name="menuItemHelp" Header="{DynamicResource help}" Width="70" Background="Transparent" VerticalAlignment="Bottom">
+				<MenuItem.Icon>
+					<Image Source="pack://application:,,,/FET;component/img/Icon-Question-Mark-200-x-200.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+				</MenuItem.Icon>
+                <MenuItem.Triggers>
+                    <EventTrigger RoutedEvent="MenuItem.MouseEnter">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemHelp"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="120"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="MenuItem.MouseLeave">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="menuItemHelp"
+                                             Storyboard.TargetProperty="(MenuItem.Width)"
+                                             To="70"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="False"                                                             
+                                             Duration="0:0:0.2"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </MenuItem.Triggers>
+			</MenuItem>
+
+
+		</Menu>
+        
+	</DockPanel>
+</Window>

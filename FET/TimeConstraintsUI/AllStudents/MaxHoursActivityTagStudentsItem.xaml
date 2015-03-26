@@ -1,0 +1,19 @@
+﻿<Window x:Class="FET.TimeConstraintsUI.Students.MaxHoursActivityTagStudentsItem"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MaxHoursIntervalStudentsItem" Height="170" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="35"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="35"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="numberLabel" Content="Number:" Grid.Row="0" Margin="0,0,164,0"></Label>
+        <ComboBox x:Name="numberComboBox" Grid.Row="0" Margin="133,5,10,10"/>
+        <Label Content="Activity Tag:" Grid.Row="1" Margin="0,0,164,0"></Label>
+        <ComboBox x:Name="activityTagComboBox" Grid.Row="1" Margin="133,5,10,10"/>
+        <Button Content="OK" Grid.Row="2" Margin="10,10,149,0" Click="Add_Click"></Button>
+        <Button Content="Cancel" Grid.Row="2" Margin="157,10,10,0" Click="Cancel_Click"></Button>
+    </Grid>
+</Window>

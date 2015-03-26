@@ -1,0 +1,80 @@
+﻿<Window x:Class="FET.DataSubjects"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource subjects}" Height="450" Width="600">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <ListBox Grid.Row="0" Grid.Column="0" x:Name="listSubjects" 
+                  SelectedIndex="{Binding Path=SelectedIndexValue}"
+                  SelectedValue="{Binding Path=Name}" 
+                  SelectedItem="{Binding SelectedSubject}"
+                  ItemsSource="{Binding Subjects, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            
+            <Label Content="{DynamicResource name}" Grid.Row="0" Grid.Column="0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ElementName=listSubjects, Path=SelectedItem.Name}" Margin="0,5,10,5"/>
+
+            <Label Content="{DynamicResource listOfHomeRooms}" Grid.Row="1" Grid.ColumnSpan="2"/>
+
+            <ListBox Grid.Row="2" Grid.ColumnSpan="2"  SelectedItem="{Binding SelectedRoomRemove}" ItemsSource="{Binding ElementName=listSubjects, 
+                Path=SelectedItem.HomeRooms,Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button Content="{DynamicResource remove}" Grid.Row="3" Grid.Column="1" Command="{Binding RemoveRoomCommand}" Width="100" Margin="0,0,10,0" HorizontalAlignment="Right" />
+            <ComboBox Grid.Column="0" Grid.Row="4" SelectedItem="{Binding SelectedRoomAdd}" ItemsSource="{Binding Rooms}" Height="25" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button Grid.Column="1" Grid.Row="4" Content="{DynamicResource add}" x:Name="addHomeRoom" Command="{Binding AddRoomCommand}" Width="100" Margin="0,5,10,5" HorizontalAlignment="Right"/>
+
+
+        </Grid>
+
+
+        <Button  Grid.Row="1" Grid.Column="0" Content="{DynamicResource add}" HorizontalAlignment="Left"  
+                 VerticalAlignment="Top" Width="100" Margin="10,5,0,5" Command="{Binding AddSubjectCommand}"/>
+        <Button  Grid.Row="1" Grid.Column="0" Content="{DynamicResource remove}" HorizontalAlignment="Right" 
+                 VerticalAlignment="Top" Width="100" Margin="0,5,10,5" Command="{Binding DelSubjectCommand}"/>
+
+        <Button Grid.Row="1" Grid.Column="1" Content="{DynamicResource close}" HorizontalAlignment="Right"  
+                VerticalAlignment="Top" Width="100" Margin="0,5,10,10" Click="Close_Click"/>
+
+    </Grid>
+</Window>

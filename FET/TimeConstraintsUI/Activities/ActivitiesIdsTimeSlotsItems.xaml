@@ -1,0 +1,33 @@
+﻿<Window x:Class="FET.TimeConstraintsUI.Activities.ActivitiesIdsTimeSlotsItems"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource addActivitiesSameStartingTime}" Height="380" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="35"/>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="35"/>
+            <RowDefinition Height="Auto" MinHeight="35"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <Label Grid.Row="0" Content="{DynamicResource activities}"></Label>
+        <ListBox x:Name="activitiesList" Grid.Row="1" Margin="10,10,10,0" RenderTransformOrigin="0.49,-0.115" Height="175" VerticalAlignment="Top"/>
+        <GroupBox Header="{DynamicResource addActivity}" Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"></ColumnDefinition>
+                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="activitiesComboBox"  Margin="10,10,10,0" RenderTransformOrigin="0.49,-0.115" Height="22" VerticalAlignment="Top"></ComboBox>
+                <Button Content="{DynamicResource remove}" Grid.Column="1" Click="RemoveFromList_Click" Margin="0,10,0,0" HorizontalAlignment="Left" />
+                <Button Content="{DynamicResource add}" Grid.Column="1" Click="AddToList_Click" Margin="0,10,0,0"  HorizontalAlignment="Right" Width="48">
+                </Button>
+            </Grid>
+        </GroupBox>
+
+        <Button Grid.Row="3" Width="105" HorizontalAlignment="Left" Content="{DynamicResource ok}" Margin="10,5,0,5" Click="OK_Click"/>
+        <Button Grid.Row="3" Width="105" HorizontalAlignment="Right" Content="{DynamicResource cancel}" Margin="0,5,10,5" Click="Cancel_Click"/>
+
+    </Grid>
+</Window>

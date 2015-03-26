@@ -1,0 +1,196 @@
+﻿<Window x:Class="FET.DataBuilding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:telerikControls="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls"
+        xmlns:sampleData="clr-namespace:FET.Data"
+        xmlns:converters="clr-namespace:FET.Convertor"
+        Title="{DynamicResource buildings}" Height="auto" Width="auto">
+    <Grid>
+
+        <Grid.Resources>
+            <converters:BoolToVisibilityConverter x:Key="BoolToVisibility"/>
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <telerik:RadTreeView Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" x:Name="listBuildings" 
+                             ItemsSource="{Binding BuildingsList,Mode=TwoWay}"
+                             SelectedItem="{Binding CurrentSelected, Mode=TwoWay}" SelectionMode="Single">
+
+            <telerik:RadTreeView.Resources>
+
+                <DataTemplate  DataType="{x:Type sampleData:Room}">
+                    <TextBlock Text="{Binding Name}" Foreground="Red" FontSize="14" FontFamily="Verdana" />
+                </DataTemplate>
+
+                <HierarchicalDataTemplate  DataType="{x:Type sampleData:Building}" ItemsSource="{Binding Rooms}"  >
+                    <TextBlock Text="{Binding Name}" Foreground="Black" FontSize="22" FontFamily="Verdana" />
+                </HierarchicalDataTemplate>
+
+            </telerik:RadTreeView.Resources>
+
+        </telerik:RadTreeView>
+
+        <telerik:GroupBox Header="{DynamicResource details}" x:Name="buildingDetails" Grid.Row="0" Grid.Column="1" Padding="10" Margin="0,10,0,10"
+                          Visibility="{Binding IsBuilding, Converter={StaticResource BoolToVisibility}}">
+            <Grid VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <telerik:Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource buildingName}"/>
+                <TextBox x:Name="txtBuildingName" Grid.Row="0" Grid.Column="1"
+                         Text="{Binding Path=SelectedItem.Name, ElementName=listBuildings}"/>
+                
+                <GroupBox Header="{DynamicResource listRooms}" Grid.Row="1" Grid.ColumnSpan="2">
+                    
+                    <Grid>   
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ListBox x:Name="listRooms" MinHeight="30" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch"
+                                            ItemsSource="{Binding ElementName=listBuildings, Path=SelectedItem.Rooms,Mode=TwoWay,
+                                            UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedRoomRemove}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+
+                        <telerik:RadButton Grid.Row="1" Grid.Column="1" Content="{DynamicResource remove}" HorizontalAlignment="Right" 
+                                           Command="{Binding RemoveRoomCommand}" Width="100" Margin="0,0,10,0" />
+
+                        <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource newRoomName}"/>
+                            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding NewRoomName}"/>
+
+                            <Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource capacity}"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding NewRoomCapacity}"/>
+
+                            <telerik:RadButton Grid.Row="2" Grid.Column="1" Content="{DynamicResource add}" HorizontalAlignment="Right" 
+                                           Command="{Binding AddRoomCommand}" Width="100" Margin="0,0,10,0" />
+                        </Grid>                                                  
+                        
+                    </Grid>
+                </GroupBox>
+                
+            </Grid>
+        </telerik:GroupBox>
+
+        <telerik:GroupBox Header="{DynamicResource details}" x:Name="roomDetails" Grid.Row="0" Grid.Column="1" Padding="10" Margin="0,10,0,10"
+                          Visibility="{Binding IsRoom, Converter={StaticResource BoolToVisibility}}">
+            <Grid VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <telerik:Label Grid.Row="0" Grid.Column="0" Content="{DynamicResource roomName}"/>
+                <TextBox x:Name="txtRoomName" Grid.Row="0" Grid.Column="1"
+                         Text="{Binding Path=SelectedItem.Name, ElementName=listBuildings}"/>
+
+                <telerik:Label Grid.Row="1" Grid.Column="0" Content="{DynamicResource capacity}"/>
+                <TextBox x:Name="txtCapacity" Grid.Row="1" Grid.Column="1"
+                         Text="{Binding Path=SelectedItem.Capacity, ElementName=listBuildings}"/>
+
+                <GroupBox Header="{DynamicResource aRoomNotAvailableTimes}" Grid.Row="2" Grid.ColumnSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <GroupBox Header="{DynamicResource time}" Grid.Row="0">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <ListBox x:Name="listSlots" Margin="0,10" MinHeight="100"
+                                         ItemsSource="{Binding ElementName=listBuildings, Path=SelectedItem.NotAvailableTimes,Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedTime}">
+                                    
+                                </ListBox>
+                                <telerik:RadButton Grid.Row="1" Width="105" HorizontalAlignment="Right" Content="{DynamicResource remove}" 
+                                                   Command="{Binding RemoveTimeCommand}" Margin="0,0,10,0"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Grid.Row="1" Header="{DynamicResource addTime}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Label Content="{DynamicResource day}" Margin="10,5,55,0"></Label>
+                                <ComboBox x:Name="dayComboBox" Grid.Column="1" Margin="0,0,10,5" 
+                                          ItemsSource="{Binding Days}" SelectedItem="{Binding SelectedDay}"/>
+                                <Label Content="{DynamicResource hour}" Grid.Row="1" Margin="10,5,19,0"></Label>
+                                
+                                <ComboBox x:Name="hourComboBox" Grid.Row="1" Grid.Column="1" Margin="0,0,10,5" 
+                                          ItemsSource="{Binding Hours}" SelectedItem="{Binding SelectedHour}"/>
+                                <telerik:RadButton Content="{DynamicResource add}" x:Name="AddButton" Grid.Row="2" Grid.Column="1" Margin="28,0,10,10" 
+                                                   Command="{Binding AddTimeCommand}" Height="22" VerticalAlignment="Bottom"/>
+                            </Grid>
+                        </GroupBox>
+
+                    </Grid>
+                </GroupBox>
+
+
+            </Grid>
+        </telerik:GroupBox>
+
+
+
+        <telerik:RadButton Grid.Row="1" Grid.Column="0" Content="{DynamicResource addBuilding}" 
+                           HorizontalAlignment="Left" Width="100" Margin="10,0,0,5"
+                           Command="{Binding AddBuildingCommand}"/>
+        <telerik:RadButton Grid.Row="1" Grid.Column="0" Content="{DynamicResource removeBuilding}" 
+                           HorizontalAlignment="Right" Width="100" Margin="0,0,10,5"
+                           Command="{Binding RemoveBuildingCommand}"/>
+       
+        <Button Grid.Row="1" Grid.Column="1" Content="{DynamicResource close}" HorizontalAlignment="Right"  Width="128"
+							Margin="0,0,10,5" Click="Close_Click"/>
+
+    </Grid>
+</Window>

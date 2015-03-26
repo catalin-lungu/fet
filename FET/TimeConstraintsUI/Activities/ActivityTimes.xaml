@@ -1,0 +1,25 @@
+﻿<Window x:Class="FET.TimeConstraintsUI.Activities.ActivityTimes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource activityPreferredStartingTimes}" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto" MinHeight="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ListBox x:Name="listConstraints" Grid.Row="0" Grid.Column="0" Margin="0,0,0,10" SelectionChanged="listConstraints_SelectionChanged"></ListBox>
+
+        <TextBox x:Name="constraintInfo" Grid.Row="0" Grid.Column="1"></TextBox>
+
+        <Button Content="{DynamicResource add}" Grid.Row="1" Grid.Column="0" Width="105" HorizontalAlignment="Left" Margin="10,4,0,4" Click="Add_Click"/>
+        <Button Content="{DynamicResource modify}" Grid.Row="1" Grid.Column="0" Width="105" HorizontalAlignment="Right" Margin="0,4,10,4" Click="Modify_Click"/>
+        <Button Content="{DynamicResource remove}" Grid.Row="1" Grid.Column="1" Width="105" HorizontalAlignment="Left" Margin="10,4,0,4" Click="Remove_Click"/>
+        <Button Content="{DynamicResource close}" Grid.Row="1" Grid.Column="1" Width="105" HorizontalAlignment="Right" Margin="0,4,10,4" Click="Close_Click"/>
+
+    </Grid>
+</Window>

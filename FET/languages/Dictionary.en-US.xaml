@@ -1,0 +1,501 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+   
+    <!--general-->
+    <system:String x:Key="fet">FET</system:String>
+
+    <system:String x:Key="ok">OK</system:String>
+    <system:String x:Key="cancel">Cancel</system:String>
+    
+    <system:String x:Key="teacher">Teacher</system:String>
+    <system:String x:Key="students">Students</system:String>
+    <system:String x:Key="subject">Subject</system:String>
+    <system:String x:Key="activityTag">Activity tag</system:String>
+    <system:String x:Key="activity">Activity</system:String>
+
+    <system:String x:Key="filter">Filter</system:String>
+    <system:String x:Key="day">Day</system:String>
+    <system:String x:Key="hour">Hour</system:String>
+    <system:String x:Key="time">Time</system:String>
+    <system:String x:Key="allowEmptyDays">Allow Empty Days</system:String>
+    <system:String x:Key="active">Active</system:String>
+    <system:String x:Key="listRooms">List of rooms</system:String>
+    <!--main window-->
+    <system:String x:Key="file">File</system:String>
+    <system:String x:Key="new">New</system:String>
+    <system:String x:Key="open">Open</system:String>
+    <system:String x:Key="openRecent">Open recent</system:String>
+    <system:String x:Key="clearList">Clear list</system:String>
+    <system:String x:Key="save">Save</system:String>
+    <system:String x:Key="saveAs">Save as...</system:String>
+    <system:String x:Key="import">Import</system:String>
+    <system:String x:Key="importFromDatabase">Import from database</system:String>
+    <system:String x:Key="export">Export</system:String>
+    <system:String x:Key="exportToDatabase">Export to database</system:String>
+    <system:String x:Key="quit">Quit</system:String>
+    
+    <system:String x:Key="data">Data</system:String>
+    <system:String x:Key="institutionInformation">Institution information</system:String>
+    <system:String x:Key="institutionName">Institution name</system:String>
+    <system:String x:Key="comments">Comments</system:String>
+    <system:String x:Key="daysAndHours">Days and hours</system:String>
+    <system:String x:Key="daysPerWeek">Days per week</system:String>
+    <system:String x:Key="hoursPerDay">Hours per day</system:String>
+    <system:String x:Key="subjects">Subjects</system:String>
+    <system:String x:Key="activityTags">Activity tags</system:String>
+    <system:String x:Key="teachers">Teachers</system:String>
+    
+    <system:String x:Key="studentsYear">Students Year</system:String>
+    <system:String x:Key="studentsGroup">Students Group</system:String>
+    <system:String x:Key="studentsSubgroup">Students Subgroup</system:String>
+    <system:String x:Key="activities">Activities</system:String>
+    <system:String x:Key="buildings">Buildings</system:String>
+    <system:String x:Key="rooms">Rooms</system:String>
+    <system:String x:Key="student">Student</system:String>
+    <system:String x:Key="numberOfStudents">Number Of Students</system:String>
+
+    <system:String x:Key="constraints">Constraints</system:String>
+    <system:String x:Key="allTimeConstraints">All time constraints</system:String>
+    <system:String x:Key="timeConstraints">Time constraints</system:String>
+    <system:String x:Key="miscellaneous">Miscellaneous</system:String>
+    <system:String x:Key="basicCompulsoryTimeConstraints">Basic compulsory time constraints</system:String>
+    <system:String x:Key="breakTimes">Break times all teachers + all students not available)</system:String>
+
+    <system:String x:Key="maxHoursWithAnActivityTagForATeacher">Max Hours With An Activity Tag For A Teacher</system:String>
+    <system:String x:Key="teacherNotAvailableTimes">A teacher not available times</system:String>
+    <system:String x:Key="maxDaysPerWeekForATeacher">Max days per week for a teacher</system:String>
+    <system:String x:Key="minDaysPerWeekForATeacher">Min days per week for a teacher</system:String>
+    <system:String x:Key="maxGapsPerDayForATeacher">Max gaps per day for a teacher</system:String>
+    <system:String x:Key="maxGapsPerWeekForATeacher">Max gaps per week for a teacher</system:String>
+    <system:String x:Key="maxHoursDailyForATeacher">Max hours daily for a teacher</system:String>
+    <system:String x:Key="maxHoursDailyWithAnActivityTagForATeacher">Max hours daily with an activity tag for a teacher</system:String>
+    <system:String x:Key="minHoursDailyForATeacher">Min hours daily for a teacher</system:String>
+    <system:String x:Key="maxHoursContinuouslyForATeacher">Max hours continuously for a teacher</system:String>
+    <system:String x:Key="maxHoursContinuouslyWithAnActivityTagForATeacher">Max hours continuously with an activity tag for a teacher</system:String>
+    <system:String x:Key="teacherWorksInAnHourlyIntervalMaxDaysPerWeek">A teacher works in an hourly interval max days per week</system:String>
+
+    <system:String x:Key="maxDaysPerWeekForAllTeachers">Max days per week for all teachers</system:String>
+    <system:String x:Key="minDaysPerWeekForAllTeachers">Min days per week for all teachers</system:String>
+    <system:String x:Key="maxGapsPerDayForAllTeachers">Max gaps per day for all teachers</system:String>
+    <system:String x:Key="maxGapsPerWeekForAllTeachers">Max gaps per week for all teachers</system:String>
+    <system:String x:Key="maxHoursDailyForAllTeachers">Max hours daily for all teachers</system:String>
+    <system:String x:Key="maxHoursDailyWithAnActivityTagForAllTeachers">Max hours daily with an activity tag for all teachers</system:String>
+    <system:String x:Key="minHoursDailyForAllTeachers">Min hours daily for all teachers</system:String>
+    <system:String x:Key="maxHoursContinuouslyForAllTeachers">Max hours continuously for all teachers</system:String>
+    <system:String x:Key="maxHoursContinuouslyWithAnActivityTagForAllTeachers">Max hours continuously with an activity tag for all teachers</system:String>
+    <system:String x:Key="teachersWorksInAnHourlyIntervalMaxDaysPerWeek">All teachers work in an hourly interval max days per week</system:String>
+
+    <system:String x:Key="maxHoursWithAnActivityTagForAStudentsSet">Max Hours With An Activity Tag For A Students Set</system:String>
+    <system:String x:Key="studentsSetNotAvailableTimes">Students set not available times</system:String>
+
+    <system:String x:Key="maxDaysPerWeekForAStudentsSet">Max days per week for a students set</system:String>
+    <system:String x:Key="maxGapsPerDayForAStudentsSet">Max gaps per day for a students set</system:String>
+    <system:String x:Key="maxGapsPerWeekForAStudentsSet">Max gaps per week for a students set</system:String>
+    <system:String x:Key="studentsSetBeginsEarly">A students set begins early (max beginnings at second hour)</system:String>
+    <system:String x:Key="maxHoursDailyForAStudentsSet">Max hours daily for a students set</system:String>
+    <system:String x:Key="maxHoursDailyWithAnActivityTagForAStudentsSet">Max hours daily with an activity tag for a students set</system:String>
+    <system:String x:Key="minHoursDailyForAStudentsSet">Min hours daily for a students set</system:String>
+    <system:String x:Key="maxHoursContinuouslyForAStudentsSet">Max hours continuously for a students set</system:String>
+    <system:String x:Key="maxHoursContinuouslyWithAnActivityTagForAStudentsSet">Max hours continuously with an activity tag for a students set</system:String>
+    <system:String x:Key="studentsSetWorksInAnHourlyIntervalMaxDaysPerWeek">A students set works in an hourly interval max days per week</system:String>
+
+    <system:String x:Key="maxDaysPerWeekForAllStudents">Max days per week for all students</system:String>
+    <system:String x:Key="maxGapsPerDayForAllStudents">Max gaps per day for all students</system:String>
+    <system:String x:Key="maxGapsPerWeekForAllStudents">Max gaps per week for all students</system:String>
+    <system:String x:Key="allStudentsBeginsEarly">All students begin early (max beginnings at second hour)</system:String>
+    <system:String x:Key="maxHoursDailyForAllStudents">Max hours daily for all students</system:String>
+    <system:String x:Key="maxHoursDailyWithAnActivityTagForAllStudents">Max hours daily with an activity tag for all students</system:String>
+    <system:String x:Key="minHoursDailyForAllStudents">Min hours daily for all students</system:String>
+    <system:String x:Key="maxHoursContinuouslyForAllStudents">Max hours continuously for all students</system:String>
+    <system:String x:Key="maxHoursContinuouslyWithAnActivityTagForAllStudents">Max hours continuously with an activity tag for all students</system:String>
+    <system:String x:Key="allStudentsWorksInAnHourlyIntervalMaxDaysPerWeek">All students work in an hourly interval max days per week</system:String>
+
+    <system:String x:Key="anActivityHasAPreferredStartingTime">An activity has a preferred starting time</system:String>
+    <system:String x:Key="anActivityHasASetOfPreferredStartingTimes">An activity has a set of preferred starting times</system:String>
+    <system:String x:Key="anActivityHasASetOfPreferredTimeSlots">An activity has a set of preferred time slots</system:String>
+
+    <system:String x:Key="aSetOfActivitiesHasASetOfPreferredStartingTimes">A set of activities has a set of preferred starting times</system:String>
+    <system:String x:Key="aSetOfActivitiesHasASetOfPreferredTimeSlots">A set of activities has a set of preferred time slots</system:String>
+
+    <system:String x:Key="aSetOfSubactivitiesHasASetOfPreferredStartingTimes">A set of subactivities has a set of preferred starting times</system:String>
+    <system:String x:Key="aSetOfSubactivitiesHasASetOfPreferredTimeSlots">A set of subactivities has a set of preferred time slots</system:String>
+
+    <system:String x:Key="minDaysBetweenASetOfActivities">Min days between a set of activities</system:String>
+    <system:String x:Key="maxDaysBetweenASetOfActivities">Max days between a set of activities</system:String>
+
+    <system:String x:Key="anActivityEndsStudentsDay">An activity ends students day</system:String>
+    <system:String x:Key="aSetOfActivitiesEndStudentsDay">A set of activities end students day</system:String>
+
+    <system:String x:Key="aSetOfActivitiesHasSameStartingTime">A set of activities has same starting time (day+hour)</system:String>
+    <system:String x:Key="aSetOfActivitiesHasSameStartingDay">A set of activities has same starting day (any hours)</system:String>
+    <system:String x:Key="aSetOfActivitiesHasSameStartingHour">A set of activities has same starting hour (any days)</system:String>
+
+    <system:String x:Key="aSetOfActivitiesOccupiesMaxTimeSlotsFromSelection">A set of activities occupies max time slots from selection</system:String>
+
+    <system:String x:Key="twoActivitiesAreOrdered">Two activities are ordered</system:String>
+
+    <system:String x:Key="twoActivitiesAreConsecutive">Two activities are consecutive</system:String>
+    <system:String x:Key="twoActivitiesAreGrouped">Two activities are grouped</system:String>
+    <system:String x:Key="threeActivitiesAreGrouped">Three activities are grouped</system:String>
+
+    <system:String x:Key="aSetOfActivitiesAreNotOverlapping">A set of activities are not overlapping</system:String>
+    <system:String x:Key="maxSimultaneousActivitiesFromASetInSelectedTimeSlots">Max simultaneous activities from a set in selected time slots</system:String>
+
+    <system:String x:Key="minGapsBetweenASetOfActivities">Min gaps (hours) between a set of activities</system:String>
+
+
+    <system:String x:Key="allSpaceConstraints">All space constraints</system:String>
+    <system:String x:Key="spaceConstraints">Space constraints</system:String>
+    <system:String x:Key="basicCompulsorySpace">Basic compulsory space</system:String>
+
+    <system:String x:Key="aRoomNotAvailableTimes">A room's not available times</system:String>
+    <system:String x:Key="homeRooms">Home Rooms</system:String>
+    <system:String x:Key="listOfHomeRooms">List Of Home Rooms</system:String>
+    
+    <system:String x:Key="aTeacherHasAHomeRoom">A teacher has a home room</system:String>
+    <system:String x:Key="aTeacherHasASetOfHomeRooms">A teacher has a set of home rooms</system:String>
+    <system:String x:Key="maxBuildingChangesPerDayForATeacher">Max building changes per day for a teacher</system:String>
+    <system:String x:Key="maxBuildingChangesPerWeekForATeacher">Max building changes per week for a teacher</system:String>
+    <system:String x:Key="minGapsBetweenBuildingChangesForATeacher">Min gaps between building changes for a teacher</system:String>
+    <system:String x:Key="maxBuildingChangesPerDayForAllTeachers">Max building changes per day for all teachers</system:String>
+    <system:String x:Key="maxBuildingChangesPerWeekForAllTeachers">Max building changes per week for all teachers</system:String>
+    <system:String x:Key="minGapsBetweenBuildingChangesForAllTeachers">Min gaps between building changes for all teachers</system:String>
+
+    <system:String x:Key="aStudentsSetHasAHomeRoom">A set of students has a home room</system:String>
+    <system:String x:Key="aStudentsSetHasASetOfHomeRooms">A set of students has a set of home rooms</system:String>
+    <system:String x:Key="maxBuildingChangesPerDayForAStudentsSet">Max building changes per day for a students set</system:String>
+    <system:String x:Key="maxBuildingChangesPerWeekForAStudentsSet">Max building changes per week for a students set</system:String>
+    <system:String x:Key="minGapsBetweenBuildingChangesForAStudentsSet">Min gaps between building changes for a students set</system:String>
+    <system:String x:Key="maxBuildingChangesPerDayForAllStudents">Max building changes per day for all students</system:String>
+    <system:String x:Key="maxBuildingChangesPerWeekForAllStudents">Max building changes per week for all students</system:String>
+    <system:String x:Key="minGapsBetweenBuildingChangesForAllStudents">Min gaps between building changes for all students</system:String>
+
+    <system:String x:Key="aSubjectHasAPreferredRoom">A subject has a preferred room</system:String>
+    <system:String x:Key="aSubjectHasASetOfPreferredRooms">A subject has a set of preferred rooms</system:String>
+
+    <system:String x:Key="anActivityTagHasAPreferredRoom">An activity tag has a preferred room</system:String>
+    <system:String x:Key="anActivityTagHasASetOfPreferredRooms">An activity tag has a set of preferred rooms</system:String>
+
+    <system:String x:Key="subjectsAndActivityTags">Subjects and activity tags</system:String>
+    <system:String x:Key="aSubjectActivityTagHasAPreferredRoom">A subject+an activity tag have a preferred room</system:String>
+    <system:String x:Key="aSubjectActivityTagHasASetOfPreferredRooms">A subject+an activity tag have a set of preferred rooms</system:String>
+
+    <system:String x:Key="anActivityHasAPreferredRoom">An activity has a preferred room</system:String>
+    <system:String x:Key="anActivityHasASetOfPreferredRooms">An activity has a set of preferred rooms</system:String>
+    <system:String x:Key="aSetOfActivitiesAreInTheSameRoomIfTheyAreConsecutive">A set of activities are in the same room if they are consecutive</system:String>
+    <system:String x:Key="aSetOfActivitiesOccupiesMaxDifferentRooms">A set of activities occupies max different rooms</system:String>
+
+
+    <system:String x:Key="statistics">Statistics</system:String>
+    <system:String x:Key="teachersStatistics">Teachers statistics</system:String>
+    <system:String x:Key="subjectsStatistics">Subjects statistics</system:String>
+    <system:String x:Key="studentsStatistics">Students statistics</system:String>
+    <system:String x:Key="activitiesRoomsStatistics">Activities rooms statistics</system:String>
+    <system:String x:Key="printAdvancedStatistics">Print advanced statistics</system:String>
+    <system:String x:Key="exportAdvancedStatisticsToDisk">Export advanced statistics to disk</system:String>
+    <system:String x:Key="helpOnStatistics">Help on statistics</system:String>
+    <system:String x:Key="advanced">Advanced</system:String>
+    
+
+    <system:String x:Key="timetable">Timetable</system:String>
+    <system:String x:Key="generateNew">Generate New</system:String>
+    <system:String x:Key="print">Print</system:String>
+
+    <system:String x:Key="settings">Settings</system:String>
+    <system:String x:Key="languages">Languages</system:String>
+
+    <system:String x:Key="help">Help</system:String>
+
+
+    <!--Rooms Timetable-->
+    <system:String x:Key="roomsTimetable">Rooms Timetable</system:String>
+
+    <!--Import Database-->
+    <system:String x:Key="importDatabase">Import From Database</system:String>
+    <system:String x:Key="connectionString">Connection String</system:String>
+
+    <!--Export To Database-->
+    <system:String x:Key="exportDatabase">Export To Database</system:String>
+
+    <!--Students Timetable-->
+    <system:String x:Key="studentsTimetable">Students Timetable</system:String>
+
+    <!--Teachers Timetable-->
+    <system:String x:Key="teachersTimetable">Teachers Timetable</system:String>
+
+    
+    <!-- Data UI windows-->
+
+    <system:String x:Key="addActivityTag">Add Activity Tag</system:String>
+
+    <system:String x:Key="addBuilding">Add Building</system:String>
+    <system:String x:Key="nameForBuilding">Name for building</system:String>
+
+    <system:String x:Key="addRoom">Add Room</system:String>
+    <system:String x:Key="nameForRoom">Name for room</system:String>
+
+    <system:String x:Key="addStudentsYear">Add Students Year</system:String>
+    <system:String x:Key="yearName">Year name</system:String>
+    
+    <system:String x:Key="addStudentsGroup">Add Students Group</system:String>
+    <system:String x:Key="groupName">Group name</system:String>
+
+    <system:String x:Key="addStudentsSubgroup">Add Students Subroup</system:String>
+    <system:String x:Key="subgroupName">Subroup name</system:String>
+
+    <system:String x:Key="addSubject">Add Subject</system:String>
+
+    <system:String x:Key="addTeacher">Add Teacher</system:String>
+    <system:String x:Key="teacherName">Teacher name</system:String>
+    
+    <system:String x:Key="add">Add</system:String>
+    <system:String x:Key="modify">Modify</system:String>
+    <system:String x:Key="remove">Remove</system:String>
+    <system:String x:Key="close">Close</system:String>
+    <system:String x:Key="currentActivity">Current activity</system:String>
+    <system:String x:Key="number">Number</system:String>
+    <system:String x:Key="duration">Duration</system:String>
+
+    <system:String x:Key="rename">Rename</system:String>
+
+    <system:String x:Key="daysOfTheWeek">Days of the Week</system:String>
+    <system:String x:Key="numberOfWorkingDaysPerWeek">Number of Working Days per Week</system:String>
+    <system:String x:Key="removeSelected">Remove Selected</system:String>
+
+    <system:String x:Key="hoursOfTheDay">Hours of the Day</system:String>
+    <system:String x:Key="startHoursPerDay">Start hours per day</system:String>
+
+    <system:String x:Key="studentsYears">Students Years</system:String>
+    <system:String x:Key="studentsGroups">Students Groups</system:String>
+    <system:String x:Key="studentsSubgroups">Students Subroups</system:String>
+    
+    <system:String x:Key="year">Year</system:String>
+    <system:String x:Key="group">Group</system:String>
+    <system:String x:Key="subgroup">Subgroup</system:String>
+    <system:String x:Key="details">Details</system:String>
+    
+    <!--Space constraints-->
+    
+    <system:String x:Key="activitiesAreInTheSameRoomIfTheyAreConsecutive">Activities are in the Same Room if they are Consecutive</system:String>
+    <system:String x:Key="activitiesCount">Activities Count</system:String>
+    <system:String x:Key="constraintId">Constraint Id</system:String>
+    <system:String x:Key="numberOfActivities">Number of activities</system:String>
+    <system:String x:Key="id">Id</system:String>
+    <system:String x:Key="addActivitiesAreInTheSameRoomIfTheyAreConsecutive">Add Activities that are in the Same Room if they are Consecutive</system:String>
+    <system:String x:Key="addActivity">Add activity</system:String>
+    <system:String x:Key="pleaseSelectAllDataNeeded">Please select all data needed!</system:String>
+
+    <system:String x:Key="activitiesOccupiesMaxDifferentRooms">Activities Occupies Max Different Rooms</system:String>
+    <system:String x:Key="maxDifferentRooms">Max different rooms</system:String>
+    <system:String x:Key="maxNumberOfDifferentRooms">Max number of different rooms</system:String>
+
+    <system:String x:Key="activityPreferredRoom">Activity Preferred Room</system:String>
+    <system:String x:Key="activityPreferredRooms">Activity Preferred Rooms</system:String>
+    <system:String x:Key="activityId">Activity Id</system:String>
+    <system:String x:Key="room">Room</system:String>
+    <system:String x:Key="building">Building</system:String>
+    <system:String x:Key="numberOfRooms">Number of rooms</system:String>
+    <system:String x:Key="capacity">Capacity</system:String>
+    <system:String x:Key="thisConstraintAcceptOnlyOneRoom">This constraint accept only one room!</system:String>
+    <system:String x:Key="pleaseSelectARoom">Please select a room!</system:String>
+    <system:String x:Key="pleaseSelectAnActivity">Please select an activity!</system:String>
+    <system:String x:Key="pleaseAddARoom">Please add a room!</system:String>
+
+    <system:String x:Key="activityTagPreferredRoom">Activity Tag Preferred Room</system:String>
+    <system:String x:Key="activityTagPreferredRooms">Activity Tag Preferred Rooms</system:String>
+    
+    <system:String x:Key="pleaseSelectAnActivityTag">Please select an activity tag!</system:String>
+
+    <system:String x:Key="roomsNotAvailableTimes">Rooms Not Available Times</system:String>
+    <system:String x:Key="numberOfNotAvailableTimes">Number of not available times</system:String>
+    <system:String x:Key="roomNotAvailableTimes">Room Not Available Times</system:String>
+    <system:String x:Key="addTime">Add Time</system:String>
+    <system:String x:Key="pleaseSelectDayAndHour">Please select day and hour!</system:String>
+
+    <system:String x:Key="studentsMaxBuildingChangesPerDay">Students Max Building Changes Per Day</system:String>
+    <system:String x:Key="studentsMaxBuildingChangesPerWeek">Students Max Building Changes Per Week</system:String>
+    <system:String x:Key="studentsMinGapsBetweenBuildingChanges">Students Min Gaps Between Building Changes</system:String>
+    <system:String x:Key="maxBuildingChangesPerDay">Max Building Changes Per Day</system:String>
+    <system:String x:Key="maxBuildingChangesPerWeek">Max Building Changes Per Week</system:String>
+    <system:String x:Key="minGapsBetweenBuildingChanges">Min Gaps Between Building Changes</system:String>
+
+    <system:String x:Key="addStudentsMaxBuildingChangesPerDay">Add Students Max Building Changes Per Day</system:String>
+    <system:String x:Key="addStudentsMaxBuildingChangesPerWeek">Add Students Max Building Changes Per Week</system:String>
+    <system:String x:Key="addStudentsMinGapsBetweenBuildingChanges">Add Students Min Gaps Between Building Changes</system:String>
+    <system:String x:Key="pleaseSelectANumber">Please select a number!</system:String>
+
+    <system:String x:Key="studentsSetMaxBuildingChangesPerDay">Students Set Max Building Changes Per Day</system:String>
+    <system:String x:Key="studentsSetMaxBuildingChangesPerWeek">Students Set Max Building Changes Per Week</system:String>
+    <system:String x:Key="studentsSetMinGapsBetweenBuildingChanges">Students Set Min Gaps Between Building Changes</system:String>
+    <system:String x:Key="addStudentsSetMaxBuildingChangesPerDay">Add Students Set Max Building Changes Per Day</system:String>
+    <system:String x:Key="addStudentsSetMaxBuildingChangesPerWeek">Add Students Set Max Building Changes Per Week</system:String>
+    <system:String x:Key="addStudentsSetMinGapsBetweenBuildingChanges">Add Students Set Min Gaps Between Building Changes</system:String>
+
+    <system:String x:Key="studentsSetHomeRoom">Students Set Home Room</system:String>
+    <system:String x:Key="studentsSetHomeRooms">Students Set Home Rooms</system:String>
+    <system:String x:Key="addStudentsSetHomeRoom">Add Students Set Home Room</system:String>
+    <system:String x:Key="addStudentsSetHomeRooms">Add Students Set Home Rooms</system:String>
+    <system:String x:Key="pleaseSelectAStudentSet">Please select a student set!</system:String>
+
+    <system:String x:Key="subjectPreferredRoom">Subject Preferred Room</system:String>
+    <system:String x:Key="subjectPreferredRooms">Subject Preferred Rooms</system:String>
+    <system:String x:Key="addSubjectPreferredRoom">Add Subject Preferred Room</system:String>
+    <system:String x:Key="addSubjectPreferredRooms">Add Subject Preferred Rooms</system:String>
+    <system:String x:Key="pleaseSelectASubject">Please select a subject!</system:String>
+
+    <system:String x:Key="subjectAndActivityTagPreferredRoom">Subject And Activity Tag Preferred Room</system:String>
+    <system:String x:Key="subjectAndActivityTagPreferredRooms">Subject And Activity Tag Preferred Rooms</system:String>
+    <system:String x:Key="addSubjectAndActivityTagPreferredRoom">Add Subject And Activity Tag Preferred Room</system:String>
+    <system:String x:Key="addSubjectAndActivityTagPreferredRooms">Add Subject And Activity Tag Preferred Rooms</system:String>
+    <system:String x:Key="subjectAndActivityTag">Subject And Activity Tag</system:String>
+    <system:String x:Key="pleaseSelectASubjectAndAnActivityTag">Please select a subject and an activity tag!</system:String>
+
+    <system:String x:Key="teacherMaxBuildingChangesPerDay">Teacher Max Building Changes Per Day</system:String>
+    <system:String x:Key="teacherMaxBuildingChangesPerWeek">Teacher Max Building Changes Per Week</system:String>
+    <system:String x:Key="teacherMinGapsBetweenBuildingChanges">Teacher Min Gaps Between Building Changes</system:String>
+    <system:String x:Key="addTeacherMaxBuildingChangesPerDay">Add Teacher Max Building Changes Per Day</system:String>
+    <system:String x:Key="addTeacherMaxBuildingChangesPerWeek">Add Teacher Max Building Changes Per Week</system:String>
+    <system:String x:Key="addTeacherMinGapsBetweenBuildingChanges">Add Teacher Min Gaps Between Building Changes</system:String>
+
+    <system:String x:Key="teachersMaxBuildingChangesPerDay">Teachers Max Building Changes Per Day</system:String>
+    <system:String x:Key="teachersMaxBuildingChangesPerWeek">Teachers Max Building Changes Per Week</system:String>
+    <system:String x:Key="teachersMinGapsBetweenBuildingChanges">Teachers Min Gaps Between Building Changes</system:String>
+    <system:String x:Key="addTeachersMaxBuildingChangesPerDay">Add Teachers Max Building Changes Per Day</system:String>
+    <system:String x:Key="addTeachersMaxBuildingChangesPerWeek">Add Teachers Max Building Changes Per Week</system:String>
+    <system:String x:Key="addTeachersMinGapsBetweenBuildingChanges">Add Teachers Min Gaps Between Building Changes</system:String>
+
+    <system:String x:Key="teacherHomeRoom">Teacher Home Room</system:String>
+    <system:String x:Key="teacherHomeRooms">Teacher Home Rooms</system:String>
+    <system:String x:Key="addTeacherHomeRoom">Add Teacher Home Room</system:String>
+    <system:String x:Key="addTeacherHomeRooms">Add Teacher Home Rooms</system:String>
+    <system:String x:Key="pleaseSelectATeacher">Please select a teacher!</system:String>
+    
+    <!--Time Constraints UI-->
+    <system:String x:Key="numberOfBreakTimes">Number of break times</system:String>
+    <system:String x:Key="addBreakTimes">Add break times</system:String>
+    
+    <system:String x:Key="activitiesSameStartingTime">Activities Same Starting Time</system:String>
+    <system:String x:Key="activitiesSameStartingDay">Activities Same Starting Day</system:String>
+    <system:String x:Key="activitiesSameStartingHour">Activities Same Starting Hour</system:String>
+    <system:String x:Key="activityEndsStudentsDay">Activity Ends Students Day</system:String>
+    <system:String x:Key="twoActivitiesOrdered">Two Activities Ordered</system:String>
+    <system:String x:Key="twoActivitiesConsecutive">Two Activities Consecutive</system:String>
+    <system:String x:Key="twoActivitiesGrouped">Two Activities Grouped</system:String>
+    <system:String x:Key="threeActivitiesGrouped">Three Activities Grouped</system:String>
+    <system:String x:Key="activitiesNotOverlapping">Activities Not Overlapping</system:String>
+
+    <system:String x:Key="firstActivity">First activity</system:String>
+    <system:String x:Key="secondActivity">Second activity</system:String>
+    <system:String x:Key="thirdActivity">Third activity</system:String>
+
+    <system:String x:Key="addActivitiesSameStartingTime">Add Activities Same Starting Time</system:String>
+    <system:String x:Key="addActivitiesSameStartingDay">Add Activities Same Starting Day</system:String>
+    <system:String x:Key="addActivitiesSameStartingHour">Add Activities Same Starting Hour</system:String>
+    <system:String x:Key="addActivityEndsStudentsDay">Add Activity Ends Students Day</system:String>
+    <system:String x:Key="addTwoActivitiesOrdered">Add Two Activities Ordered</system:String>
+    <system:String x:Key="addTwoActivitiesConsecutive">Add Two Activities Consecutive</system:String>
+    <system:String x:Key="addTwoActivitiesGrouped">Add Two Activities Grouped</system:String>
+    <system:String x:Key="addThreeActivitiesGrouped">Add Three Activities Grouped</system:String>
+    <system:String x:Key="addActivitiesNotOverlapping">Add Activities Not Overlapping</system:String>
+
+    <!-- {0} must be present always because is used to inject information into string-->
+    <system:String x:Key="thisTypeOfConstraintCanContainOnlyXActivitiesIds">This type of constraint can contain only {0} activities ids!</system:String>
+    <!-- {0} must be present always because is used to inject information into string-->
+    <system:String x:Key="thisTypeOfConstraintRequiresAMinimumOfActivities">This type of constraint requires a minimum of {0} activities!</system:String>
+
+
+    <system:String x:Key="minDaysBetweenActivities">Min Days Between Activities</system:String>
+    <system:String x:Key="minGapsBetweenActivities">Min Gaps Between Activities</system:String>
+    <system:String x:Key="maxDaysBetweenActivities">Max Days Between Activities</system:String>
+
+    <system:String x:Key="minDays">Min Days</system:String>
+    <system:String x:Key="minGaps">Min Gaps</system:String>
+    <system:String x:Key="maxDays">Max Days</system:String>
+    <system:String x:Key="addMinDaysBetweenActivities">Add Min Days Between Activities</system:String>
+    <system:String x:Key="addMinGapsBetweenActivities">Add Min Gaps Between Activities</system:String>
+    <system:String x:Key="addMaxDaysBetweenActivities">Add Max Days Between Activities</system:String>
+    <system:String x:Key="numberOfMinDays">Number of min days</system:String>
+    <system:String x:Key="numberOfMinGaps">Number of min gaps</system:String>
+    <system:String x:Key="numberOfMaxDays">Number of max days</system:String>
+
+
+    <system:String x:Key="activitiesPreferredStartingTimes">Activities Preferred Starting Times</system:String>
+    <system:String x:Key="activitiesPreferredTimeSlots">Activities Preferred Time Slots</system:String>
+    <system:String x:Key="subactivitiesPreferredStartingTimes">Subactivities Preferred Starting Times</system:String>
+    <system:String x:Key="subactivitiesPreferredTimeSlots">Subactivities Preferred Time Slots</system:String>
+    <system:String x:Key="activitiesEndStudentsDay">Activities Ends Students Day</system:String>
+
+    <system:String x:Key="numberOfPreferredStartingTimes">Number of preferred starting times</system:String>
+    <system:String x:Key="numberOfPreferredTimeSlots">Number of preferred time slots</system:String>
+
+    <system:String x:Key="addActivitiesPreferredStartingTimes">Add Activities Preferred Starting Times</system:String>
+    <system:String x:Key="addActivitiesPreferredTimeSlots">Add Activities Preferred Time Slots</system:String>
+    <system:String x:Key="addSubactivitiesPreferredStartingTimes">Add Subactivities Preferred Starting Times</system:String>
+    <system:String x:Key="addSubactivitiesPreferredTimeSlots">Add Subactivities Preferred Time Slots</system:String>
+    <system:String x:Key="addActivitiesEndStudentsDay">Add Activities Ends Students Day</system:String>
+    <system:String x:Key="thisConstraintsAcceptOnlyOneTimeSlot">This constraints accept only one time slot</system:String>
+
+
+    <system:String x:Key="activityPreferredStartingTime">Activity Preferred Starting Time</system:String>
+    <system:String x:Key="activityPreferredStartingTimes">Activity Preferred Starting Times</system:String>
+    <system:String x:Key="activityPreferredTimeSlots">Activity Preferred Time Slots</system:String>
+    <system:String x:Key="preferredDay">Preferred day</system:String>
+    <system:String x:Key="preferredHour">Preferred hour</system:String>
+
+    <system:String x:Key="addActivityPreferredStartingTime">Add Activity Preferred Starting Time</system:String>
+    <system:String x:Key="addAactivityPreferredStartingTimes">Add Activity Preferred Starting Times</system:String>
+    <system:String x:Key="addAactivityPreferredTimeSlots">Add Activity Preferred Time Slots</system:String>
+
+    <system:String x:Key="teachersMaxGapsPerWeek">Teachers Max Gaps Per Week</system:String>
+    <system:String x:Key="teachersMaxGapsPerDay">Teachers Max Gaps Per Day</system:String>
+    <system:String x:Key="teachersMaxHoursDaily">Teachers Max Hours Daily</system:String>
+    <system:String x:Key="teachersMinHoursDaily">Teachers Min Hours Daily</system:String>
+    <system:String x:Key="teachersIntervalMaxDaysPerWeek">Teachers Interval Max Days Per Week</system:String>
+    <system:String x:Key="teachersMaxHoursContinuously">Teachers Max Hours Continuously</system:String>
+    <system:String x:Key="teachersMaxDaysPerWeek">Teachers Max Days Per Week</system:String>
+    <system:String x:Key="teachersMinDaysPerWeek">Teachers Min Days Per Week</system:String>
+
+    <system:String x:Key="startInterval">Start Interval</system:String>
+    <system:String x:Key="endInterval">End Interval</system:String>
+    <system:String x:Key="maxHoursDaily">Max Hours Daily</system:String>
+    <system:String x:Key="maxHoursContinuously">Max Hours Continuously</system:String>
+
+    <system:String x:Key="studentsMaxGapsPerWeek">Students Max Gaps Per Week</system:String>
+    <system:String x:Key="studentsMaxGapsPerDay">Students Max Gaps Per Day</system:String>
+    <system:String x:Key="studentsMaxHoursDaily">Students Max Hours Daily</system:String>
+    <system:String x:Key="studentsMinHoursDaily">Students Min Hours Daily</system:String>
+    <system:String x:Key="studentsMaxHoursContinuously">Students Max Hours Continuously</system:String>
+    <system:String x:Key="studentsMaxDaysPerWeek">Students Max Days Per Week</system:String>
+    <system:String x:Key="studentsEarlyMaxBeginningsAtSecondHour">Students Early Max Beginnings At Second Hour</system:String>
+    <system:String x:Key="studentsIntervalMaxDaysPerWeek">Students Interval Max Days Per Week</system:String>
+
+    <system:String x:Key="maxDaysPerWeek">Max Days Per Week</system:String>
+    <system:String x:Key="maxGapsPerWeek">Max Gaps Per Week</system:String>
+    <system:String x:Key="maxGapsPerDay">Max Gaps Per Day</system:String>
+    <system:String x:Key="maximumHoursDaily">Maximum Hours Daily</system:String>
+    <system:String x:Key="minimumHoursDaily">Minimum Hours Daily</system:String>
+    <system:String x:Key="maximumHoursContinuously">Maximum Hours Continuously</system:String>
+    <system:String x:Key="minimumDaysPerWeek">Minimum Days Per Week</system:String>
+    <system:String x:Key="teacherIntervalMaxDaysPerWeek">Teacher Interval Max Days Per Week</system:String>
+    
+    <system:String x:Key="addStudents">Add Students</system:String>
+    <system:String x:Key="studentsName">Students Name</system:String>
+    <system:String x:Key="parent">Parent</system:String>
+    <system:String x:Key="teachersTimeConstraints">Teachers Time Constraints</system:String>
+    <system:String x:Key="studentsTimeConstraints">Students Time Constraints</system:String>
+    <system:String x:Key="teachersConstraints">Teachers Constraints</system:String>
+    <system:String x:Key="studentsConstraints">Students Constraints</system:String>
+    <system:String x:Key="roomName">Room Name</system:String>
+    <system:String x:Key="buildingName">Building Name</system:String>
+    <system:String x:Key="name">Name</system:String>
+    <system:String x:Key="teach">Teach</system:String>
+    <system:String x:Key="numberOfLectures">Number Of Lectures</system:String>
+    <system:String x:Key="generalInfo">General Info</system:String>
+    <system:String x:Key="removeBuilding">Remove Building</system:String>
+    <system:String x:Key="newBuildingName">New Building Name</system:String>
+    <system:String x:Key="newRoomName">New Room Name</system:String>
+    <system:String x:Key="generatedActivities">Generated Activities</system:String>
+    <system:String x:Key="listOfPreferredRooms">List Of Preferred Rooms</system:String>
+</ResourceDictionary>
